@@ -1,0 +1,72 @@
+
+.nav {
+  margin-bottom: 0px;
+}
+
+.list li {
+  font-size: 1.2em;
+  padding: 20px 20px 20px 10px;
+}
+
+div#mpd-info span {
+	display: block;
+}
+
+.nav-tabs > li > a {
+  padding: 3px 10px;
+  background: white;
+  border-bottom: 1px solid #DDD;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+
+}
+
+.alert {
+  display: none;
+  margin: 1em auto;
+  font-size: 0.8em;
+  width: auto;
+  line-height: 1.3em;
+  max-width: 300px;
+}
+
+.alert .close {
+  z-index: 99;
+}
+
+.tab-pane {
+  padding-top: 5px;
+}
+
+.progress {
+  margin-top: 10px;
+}
+
+.faye {
+  padding: 1em 20px;
+  margin: 0px 0px 2em 0px;
+  border: 1px solid #DDD;
+  padding-bottom: 2em;
+  border-top: none;
+}
+.faye i[data-id=faye-status-icon] {
+  color: red;
+}
+
+.content {
+/*  background: url('/img/wild_oliva.png');
+  background: url('/img/carbon_fibre.png');
+
+  background: url('/img/bedge_grunge.png');
+  background: url('/img/bright_squares.png');
+  background: url('/img/grey.png');
+  background: url('/img/grid.png');
+  background: url('/img/wall4.png');
+  */
+  background: url('/img/creampaper.png');
+}
+
+.content {
+
+}

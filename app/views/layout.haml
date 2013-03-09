@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title=settings.title
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+
+    = css :app
+
+  %body
+    %header.bar-title
+      %h1.title=settings.title
+    %nav.bar-tab
+      %ul.tab-inner
+        %li.tab-item.active
+          %a{"data-toggle" => "tab", "data-menu" => "services", :href => "#home"}
+            %img.tab-icon{:src => "img/noun_project_303.svg"}
+              .tab-label Services
+        %li.tab-item
+          %a{"data-toggle" => "tab", :href => "#settings"}
+            %img.tab-icon{:src => "img/noun_project_7137.svg"}
+              .tab-label Settings
+
+    .content
+      = yield
+
+    = js :vendor
+    = js :app

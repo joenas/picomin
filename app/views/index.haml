@@ -1,0 +1,33 @@
+.tab-content
+  #home.tab-pane.active
+    %ul.list.inset
+      %li.list-divider
+        Services
+      - @services.each do |name, service|
+        %li{"data-id" => "#{name}"}
+
+  #settings.tab-pane
+    %ul.list.inset
+      %li.list-divider Settings
+      %li
+        Faye:
+        %i.icon-remove{"data-id" => "faye-status-icon"}
+
+%div.alert.alert-info
+  %button.close{:type => "button"} ×
+  %p.alert-message
+
+%script#tmpl-service-info{:type => "html/template"}
+  {{ if (data['running'] == true ) { }}
+
+  %strong {{= data['name'] }}
+  %span.label.label-success Running
+  .pull-right
+    %input.btn.btn-info.btn-mini{ :type => "button", :value => "Restart", "data-type" => "service_control", "data-service" => "{{= service }}", "data-action" => "restart" }/
+    %input.btn.btn-danger.btn-mini{:type => "submit", :value => "Stop", "data-type" => "service_control", "data-service" => "{{= service }}", "data-action" => "stop"}/
+
+  {{ } else { }}
+  %strong {{= data['name'] }}
+  %span.label.label-important Not running
+  %input.pull-right.btn.btn-success.btn-mini{:type => "submit", :value => "Start", "data-type" => "service_control", "data-service" => "{{= service }}", "data-action" => "start"}/
+  {{ } //end }}
