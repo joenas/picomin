@@ -1,7 +1,7 @@
 service :name     => 'MPD',
         :bin      => 'mpd',
-        :pgrep    => 'mpd',
-        :grep     => 'pgrep mpd',
+        :pgrep    => '-x mpd',
+        :grep     => 'pgrep -x mpd',
         :commands => [:start, :stop, :restart]
 
 service :name     => 'Airplay',

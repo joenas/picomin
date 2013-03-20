@@ -1,5 +1,4 @@
 class Picomin < Sinatra::Base
-
   configure :development do
     register Sinatra::Reloader
     also_reload './config/routes'
@@ -11,11 +10,7 @@ class Picomin < Sinatra::Base
   set :views, Proc.new { File.join(root, "app/views") }
   set :conf_file, Proc.new { File.join(root, "config/config.rb") }
   set :services, {}
-
   enable :logging
-
-  FAYE_SERVER_URL = 'http://localhost:9292/faye'
-  include FayeBroadcast
 
   extend Configuration
   configuration conf_file

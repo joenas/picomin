@@ -5,7 +5,6 @@ gem 'sinatra-reloader'
 
 #servers
 gem 'thin'
-gem 'faye'
 
 # assets
 gem 'haml'
@@ -16,10 +15,3 @@ gem 'yui-compressor', :require => 'yui/compressor'
 
 gem 'json', '>= 1.7.7'
 gem 'therubyracer'
-
-# dev
-group :development do
-  gem 'capistrano'
-  gem 'capistrano-unicorn'
-  gem 'rvm-capistrano'
-end

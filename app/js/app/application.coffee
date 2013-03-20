@@ -4,48 +4,6 @@ $ ->
     console.log(obj)
 
   ###
-  Faye!
-  ###
-
-  client = new Faye.Client 'http://' + location.hostname + ':9292/faye'
-
-  subscription = client.subscribe '/foo', (msg) ->
-    #fayeStatusMsg(msg.text)
-    fayeActionHandler(msg.action) if msg.action?
-
-  subscription.callback ->
-    fayeStatus(true)
-
-  subscription.errback (error) ->
-    fayeStatus(false)
-
-  client.bind 'transport:down', ->
-    fayeStatus(false)
-
-  client.bind 'transport:up', ->
-    fayeStatus(true)
-
-  fayeActionHandler = (action) ->
-    switch action
-      when 'service'  then servicesInfo()
-
-  fayeStatus = (connected) ->
-    if connected
-      icon = 'icon-ok'
-      #fayeStatusMsg('Faye online!')
-    else
-      icon = 'icon-remove'
-      #fayeStatusMsg('Faye offline :(')
-    #icon = if connected then 'icon-ok' else 'icon-remove'
-    fayeStatusIcon icon
-
-  fayeStatusMsg = (msg) ->
-    $('span[data-id=faye-status-msg]').html(msg.replace(/\n/g, "<br>"))
-
-  fayeStatusIcon = (icon) ->
-    $('i[data-id=faye-status-icon]').attr('class', icon)
-
-  ###
   Templates
   ###
   _.templateSettings =
@@ -74,7 +32,6 @@ $ ->
   # Close button
   $(document).on "click", 'button[data-dismiss=alert]', () ->
     $(@).parent().hide()
-
 
   ###
   Services page
