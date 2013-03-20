@@ -17,5 +17,5 @@ service :name     => 'MPD',
 
 ```bash
 # Start the server
-$ foreman start -p port
+$ thin start
 ```
