@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem "sinatra", :require => "sinatra/base"
-gem 'sinatra-reloader'
+gem "sinatra"
+gem 'sinatra-contrib'
 
 #servers
 gem 'thin'

@@ -44,8 +44,6 @@ GEM
       rack-test
       sinatra (~> 1.3.0)
       tilt (~> 1.3)
-    sinatra-reloader (1.0)
-      sinatra-contrib
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -67,7 +65,7 @@ DEPENDENCIES
   sass
   sinatra
   sinatra-assetpack
-  sinatra-reloader
+  sinatra-contrib
   therubyracer
   thin
   yui-compressor
