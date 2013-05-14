@@ -13,5 +13,5 @@ gem 'coffee-script'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'yui-compressor', :require => 'yui/compressor'
 
-gem 'json', '>= 1.7.7'
+gem 'json'#, '>= 1.7.7'
 gem 'therubyracer'
