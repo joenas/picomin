@@ -14,4 +14,5 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'yui-compressor', :require => 'yui/compressor'
 
 gem 'json'#, '>= 1.7.7'
-gem 'therubyracer'
+gem "therubyracer", "~> 0.11.4"
+gem 'libv8'
