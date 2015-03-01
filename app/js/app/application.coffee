@@ -47,19 +47,17 @@ $ ->
       if data['message'] isnt null
         $('.alert').show()
         $('.alert-message').html data['message'].replace(/\n/g, "<br>")
-      renderServiceInfo service, data
+      renderServiceInfo data['service']
 
   # General function to get info, on load fe
   servicesInfo = () ->
     $.getJSON '/services.json', (data) ->
-      $.each data['services'], (service, data) ->
-        renderServiceInfo service, data
+      _.each data['services'], (service) ->
+        renderServiceInfo service
 
-
-  renderServiceInfo = (service, data) ->
-    template = _.template tmpl['service-info'], { data: data, service: service }
-    $('ul.list li[data-id='+service+']').html(template)
-
+  renderServiceInfo = (service) ->
+    template = _.template tmpl['service-info'], service
+    $('ul.list li[data-id='+service.id+']').html(template)
 
   ###
   On load

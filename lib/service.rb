@@ -1,28 +1,37 @@
-class Service
-  attr_reader :name, :bin
+class Service < OpenStruct
 
-  def initialize(options)
-    options.each do |key, value|
-      instance_variable_set("@#{key}", value)
+  PS_CMD = "ps -eo comm,pid | grep %s"
+
+  def self.all
+    @all ||= YAML.load_file(File.join(__dir__, "../config/services.yaml")).map do |data|
+      Service.new(data)
     end
   end
 
-  def running?
-    return false unless @pgrep || @grep
-    %x[#{@grep}] != '' || %x[pgrep #{@pgrep}] != ''
+  def self.find(id)
+    all.find {|service|service.id.to_i == id.to_i} or raise StandardError, "Service not found"
   end
 
-  def info
+
+  def running?
+    !`#{PS_CMD % bin}`.empty?
+  end
+
+  def to_h
     {
-      running: self.running?,
-      bin:     @bin,
-      name:    @name
+      id:       id,
+      running:  running?,
+      name:     name
     }
   end
 
   def do(command)
-    return "please set 'commands' for this service" unless @commands
-    return "command '#{command}' not allowed!" unless (@commands.include? command.to_sym)
-    `service #{@bin} #{command}`
+    begin
+      return "please set 'commands' for this service" unless commands
+      return "command '#{command}' not allowed!" unless (commands.include? command)
+      `service #{bin} #{command}`
+    rescue Errno::ENOENT => e
+      e.message
+    end
   end
 end

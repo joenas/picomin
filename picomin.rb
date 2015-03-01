@@ -2,18 +2,14 @@ class Picomin < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     also_reload './config/routes'
+    also_reload './lib/service'
   end
 
   # Setup
   set :title, 'Picomin'
   set :root, File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, "app/views") }
-  set :conf_file, Proc.new { File.join(root, "config/config.rb") }
-  set :services, {}
   enable :logging
-
-  extend Configuration
-  configuration conf_file
 
   # assets
   register Sinatra::AssetPack

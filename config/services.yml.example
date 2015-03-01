@@ -1,0 +1,17 @@
+---
+- 
+  id: 1
+  name: Sixad
+  bin: sixad
+  commands:
+  - start
+  - stop
+  - restart
+- 
+  id: 2
+  name: Apache
+  bin: apache
+  commands:
+  - start
+  - stop
+  - restart
