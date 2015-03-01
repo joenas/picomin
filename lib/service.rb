@@ -29,7 +29,7 @@ class Service < OpenStruct
     begin
       return "please set 'commands' for this service" unless commands
       return "command '#{command}' not allowed!" unless (commands.include? command)
-      `service #{bin} #{command}`
+      `sudo service #{bin} #{command}`
     rescue Errno::ENOENT => e
       e.message
     end
