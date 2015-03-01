@@ -58,6 +58,10 @@ $ ->
   renderServiceInfo = (service) ->
     template = _.template tmpl['service-info'], service
     $('ul.list li[data-id='+service.id+']').html(template)
+    actions = if (service.running) then service.commands.running else service.commands.not_running
+    _.each actions, (action) ->
+      action_tmpl = _.template tmpl['service-actions'], {action: action, id: service.id}
+      $('li[data-id='+service.id+'] .actions').append(action_tmpl)
 
   ###
   On load

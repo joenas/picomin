@@ -22,12 +22,12 @@
 
   %strong {{= name }}
   %span.label.label-success Running
-  .pull-right
-    %input.btn.btn-info.btn-mini{ type: :button, value: "Restart", data: {type: :service_control, service: "{{= id }}", action: "restart" }}/
-    %input.btn.btn-danger.btn-mini{type: "submit", value: "Stop", data: {type: :service_control, service: "{{= id }}", action: "stop" }}
 
   {{ } else { }}
   %strong {{= name }}
   %span.label.label-important Not running
-  %input.pull-right.btn.btn-success.btn-mini{type: "submit", value: "Start", data: {type: :service_control, service: "{{= id }}", action: "start" }}
   {{ } //end }}
+  .actions.pull-right
+
+%script#tmpl-service-actions{type: "html/template"}
+  %input.btn.btn-default.btn-mini{type: :button, value: "{{= action }}", data: {type: :service_control, service: "{{= id }}", action: "{{= action }}" }}/

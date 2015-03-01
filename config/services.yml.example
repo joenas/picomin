@@ -1,17 +1,20 @@
 ---
-- 
+-
   id: 1
   name: Sixad
   bin: sixad
   commands:
-  - start
-  - stop
-  - restart
-- 
+    running:
+      stop: sudo service sixad stop
+      restart: sudo service sixad stop
+    not_running:
+      start: sudo service sixad restart
+-
   id: 2
-  name: Apache
-  bin: apache
+  name: MPD
+  bin: mpd
   commands:
-  - start
-  - stop
-  - restart
+    running:
+      stop: kill -15 %{pid}
+    not_running:
+      start: mpd
