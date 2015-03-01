@@ -3,7 +3,7 @@ class Service < OpenStruct
   PS_CMD = "ps -eo comm,pid | grep %s"
 
   def self.all
-    @all ||= YAML.load_file(File.join(__dir__, "../config/services.yaml")).map do |data|
+    @all ||= YAML.load_file(File.join(__dir__, "../config/services.yml")).map do |data|
       Service.new(data)
     end
   end
