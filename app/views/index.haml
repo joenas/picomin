@@ -27,7 +27,7 @@
   %strong {{= name }}
   %span.label.label-important Not running
   {{ } //end }}
-  .actions.pull-right
+  .commands.pull-right
 
-%script#tmpl-service-actions{type: "html/template"}
-  %input.btn.btn-default.btn-mini{type: :button, value: "{{= action }}", data: {type: :service_control, service: "{{= id }}", action: "{{= action }}" }}/
+%script#tmpl-service-commands{type: "html/template"}
+  %input.btn.btn-default.btn-mini{type: :button, value: "{{= command }}", data: {type: :service_control, service: "{{= id }}", action: "{{= command }}" }}/

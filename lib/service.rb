@@ -22,10 +22,7 @@ class Service < OpenStruct
       id:       id,
       running:  running?,
       name:     name,
-      commands: {
-        running: commands_running,
-        not_running: commands_not_running,
-      }
+      commands: current_commands.keys
     }
   end
 
@@ -37,7 +34,7 @@ class Service < OpenStruct
     begin
       return "please set 'commands' for this service" unless commands
       return "command '#{command}' not allowed!" unless allowed?(command)
-      cmd = get_command(command)
+      cmd = current_commands.fetch(command)
       `#{cmd % {pid: pid}}`
     rescue Errno::ENOENT => e
       e.message
@@ -50,24 +47,11 @@ class Service < OpenStruct
     `#{PS_CMD % bin}`
   end
 
-  def get_command(cmd)
-    if running?
-      commands['running'].fetch(cmd)
-    else
-      commands['not_running'].fetch(cmd)
-    end
+  def current_commands
+    running? ? commands['running'] : commands['not_running']
   end
 
-  def commands_running
-    commands['running'].keys
-  end
-
-  def commands_not_running
-    commands['not_running'].keys
-  end
-
-  def allowed?(command)
-    (running? && commands_running.include?(command)) ||
-    (!running? && commands_not_running.include?(command))
+  def allowed?(cmd)
+    current_commands.keys.include?(cmd)
   end
 end
