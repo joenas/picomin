@@ -12,7 +12,6 @@ class Service < OpenStruct
     all.find {|service|service.id.to_i == id.to_i} or raise StandardError, "Service not found"
   end
 
-
   def running?
     !ps_cmd.empty?
   end
