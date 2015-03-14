@@ -16,6 +16,7 @@ GEM
       multi_json (~> 1.0)
     haml (4.0.2)
       tilt
+    hashr (0.0.22)
     jsmin (1.0.1)
     json (1.8.0)
     libv8 (3.11.8.17)
@@ -28,6 +29,8 @@ GEM
       rack (>= 1.0)
     ref (1.0.4)
     sass (3.2.9)
+    shotgun (0.9.1)
+      rack (>= 1.0)
     sinatra (1.4.2)
       rack (~> 1.5, >= 1.5.2)
       rack-protection (~> 1.4)
@@ -63,9 +66,11 @@ DEPENDENCIES
   backports (~> 3.6.4)
   coffee-script (~> 2.2.0)
   haml (~> 4.0.2)
+  hashr (~> 0.0.22)
   json (~> 1.8.0)
   libv8 (~> 3.11.8.17)
   sass (~> 3.2.9)
+  shotgun
   sinatra (~> 1.4.2)
   sinatra-assetpack
   sinatra-contrib (~> 1.4.0)

@@ -1,4 +1,4 @@
-class Service < OpenStruct
+class Service < Hashr
 
   PS_CMD = "ps -eo comm,pid | grep %s"
 
@@ -21,7 +21,7 @@ class Service < OpenStruct
       id:       id,
       running:  running?,
       name:     name,
-      commands: current_commands.keys
+      commands: current_commands.try(:keys)
     }
   end
 
@@ -47,7 +47,7 @@ class Service < OpenStruct
   end
 
   def current_commands
-    running? ? commands['running'] : commands['not_running']
+    running? ? commands.running : commands.not_running
   end
 
   def allowed?(cmd)

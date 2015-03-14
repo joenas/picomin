@@ -19,3 +19,7 @@ gem "therubyracer", "~> 0.11.4"
 gem 'libv8', "~> 3.11.8.17"
 
 gem 'backports', "~> 3.6.4"
+
+gem 'hashr', "~> 0.0.22"
+
+gem 'shotgun'
