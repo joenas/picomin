@@ -6,7 +6,7 @@ class Picomin < Sinatra::Base
   end
 
   # Setup
-  set :title, 'Picomin'
+  set :title, "Picomin | %s" % `hostname`
   set :root, File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, "app/views") }
   enable :logging
