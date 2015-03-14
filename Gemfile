@@ -23,3 +23,4 @@ gem 'backports', "~> 3.6.4"
 gem 'hashr', "~> 0.0.22"
 
 gem 'shotgun'
+gem 'pry'

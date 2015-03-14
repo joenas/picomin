@@ -21,7 +21,7 @@ class Service < Hashr
       id:       id,
       running:  running?,
       name:     name,
-      commands: current_commands.try(:keys)
+      commands: current_commands.try(:keys),
     }
   end
 
@@ -33,7 +33,7 @@ class Service < Hashr
     begin
       return "please set 'commands' for this service" unless commands
       return "command '#{command}' not allowed!" unless allowed?(command)
-      cmd = current_commands.fetch(command)
+      cmd = current_commands.send(command)
       `#{cmd % {pid: pid}}`
     rescue Errno::ENOENT => e
       e.message
@@ -51,6 +51,6 @@ class Service < Hashr
   end
 
   def allowed?(cmd)
-    current_commands.keys.include?(cmd)
+    current_commands.key?(cmd.to_sym)
   end
 end
