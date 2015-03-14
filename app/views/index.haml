@@ -1,17 +1,8 @@
-.tab-content
-  #home.tab-pane.active
-    %ul.list.inset
-      %li.list-divider
-        Services
-      - @services.each do |service|
-        %li{data: {id: service.id}}
-
-  #settings.tab-pane
-    %ul.list.inset
-      %li.list-divider Settings
-      %li
-        Faye:
-        %i.icon-remove{data: {id: :"faye-status-icon"}}
+%ul.list
+  %li.list-divider
+    Services
+  - @services.each do |service|
+    %li{data: {id: service.id}}
 
 %div.alert.alert-info
   %button.close{type: :button} ×
@@ -19,14 +10,13 @@
 
 %script#tmpl-service-info{type: "html/template"}
   {{ if (running) { }}
-
-  %strong {{= name }}
-  %span.label.label-success Running
-
+  %span.badge.badge-success
+    %i.icon-white.icon-ok
   {{ } else { }}
-  %strong {{= name }}
-  %span.label.label-important Not running
+  %span.badge.badge-important
+    %i.icon-white.icon-remove
   {{ } //end }}
+  %strong {{= name }}
   .commands.pull-right
 
 %script#tmpl-service-commands{type: "html/template"}

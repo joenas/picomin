@@ -24,7 +24,12 @@ class Picomin < Sinatra::Base
       '/js/vendor/*.js'
     ]
     js :app, [ '/js/app/*.js' ]
-    css :app, [ '/css/*.css' ]
+    css :app, [
+      '/css/bootstrap.min.css',
+      '/css/bootstrap-responsive.min.css',
+      '/css/ratchet.css',
+      '/css/application.css',
+    ]
   }
 
   require './config/routes'
