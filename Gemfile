@@ -8,7 +8,7 @@ gem 'sinatra-contrib', "~> 1.4.0"
 gem 'thin', "~> 1.5.1"
 
 # assets
-gem 'haml', "~> 4.0.2"
+gem 'haml', "~> 5.0.0"
 gem 'sass', "~> 3.2.9"
 gem 'coffee-script', "~> 2.2.0"
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
