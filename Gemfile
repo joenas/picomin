@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.7.0'
 
 gem "sinatra", "~> 1.4.2"
 gem 'sinatra-contrib', "~> 1.4.0"
@@ -15,8 +15,8 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'yui-compressor', :require => 'yui/compressor'
 
 gem 'json', "~> 1.8.0"
-gem "therubyracer", "~> 0.11.4"
-gem 'libv8', "~> 3.11.8.17"
+gem "therubyracer", "~> 0.12.3"
+gem 'libv8', "~> 3.16.14.15"
 
 gem 'backports', "~> 3.6.4"
 
